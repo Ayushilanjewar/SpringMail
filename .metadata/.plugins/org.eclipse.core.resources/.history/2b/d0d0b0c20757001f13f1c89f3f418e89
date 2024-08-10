@@ -1,0 +1,22 @@
+package com.nt;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import com.nt.service.IpurchaseOrder;
+
+@SpringBootApplication
+public class SpringBoorMailSenderProj101Application {
+
+	public static void main(String[] args) {
+		ApplicationContext ctx=SpringApplication.run(SpringBoorMailSenderProj101Application.class, args);
+		
+		IpurchaseOrder order=ctx.getBean("purchaseService",IpurchaseOrder.class);
+	    try {
+	    	String msg=order.purchase(new String[] {"shirt","trouser","watch"},
+	    			                  new double[] {5000,6000,70000},
+	    			                  new String[] {"pallavikhadse416@gmail.com","khadsedhanashri4@gmail.com","ambagdekomal@gmail.com"});
+	    }
+	}
+
+}
